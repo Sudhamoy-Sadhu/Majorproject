@@ -16,7 +16,13 @@ class AuthController extends Controller
     public function loginAttempt(Request $request){
         $credentials = $request->only(['email','password']);
         if(Auth::attempt($credentials)){
-            return redirect()->route('dashboard');
+            if(Auth::user()->role == 'admin'){
+                return redirect('Admin.dashboard_layout');
+            }
+            else{
+                return redirect()->route('User.dashboard');
+
+}
         }
         return back()->withErrors(['email' => 'invalid credentials']);
 
@@ -39,17 +45,17 @@ class AuthController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required | unique:users',
-            'password'=>'required | min:8',
+            'password'=>'required | min:4',
         ]);
-    
+
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
         ]);
-    
+
         Auth::login($user);
-    
+
         return redirect()->route('dashboard');
     }
     public function logout(){

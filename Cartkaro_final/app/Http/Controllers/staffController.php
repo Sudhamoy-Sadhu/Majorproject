@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Staff;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +25,8 @@ class staffController extends Controller
     public function delete($id)
     {
         $staffs = Staff::where('id', $id)->first();
+        $user = User::where('id', $id)->first();
+        $user->delete();
         $staffs->delete();
         return back();
     }
@@ -55,9 +59,6 @@ class staffController extends Controller
             'aadhar_no' => 'required',
             'imageName' => 'required',
         ]);
-
-        // dd($request->all());
-        //Upload imager
         $imageName = time() . '.' . $request->imageName->extension();
         $request->imageName->move(public_path('staff_aadhar'), $imageName);
 
@@ -70,7 +71,14 @@ class staffController extends Controller
         $staff->aadhar_no = $request->aadhar_no;
         $staff->aadhar_img = $imageName;
         $staff->password = bcrypt($request->aadhar_no);
-        $staff->shop_name = $request->aadhar_no;
+        $staff->shop_name = Auth::user()->name;
+
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('aadhar_no')),
+'role'=>'user',
+        ]);
 
         $staff->save();
 
