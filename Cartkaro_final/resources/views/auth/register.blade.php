@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signup.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Login</title>
     <style>
         * {
@@ -12,7 +14,8 @@
             box-sizing: border-box;
             font-family: 'Dongle', cursive;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: #604BE8
         }
@@ -30,7 +33,8 @@
             justify-content: center;
             align-items: center;
         }
-        .image img{
+
+        .image img {
             height: 400px;
             width: fit-content;
         }
@@ -58,12 +62,14 @@
         .containts form h2 {
             color: #604BE8;
         }
-        .containts form p{
-            margin-bottom: 25px; 
+
+        .containts form p {
+            margin-bottom: 25px;
             font-size: 12px;
         }
-        .containts form .input-group{
-            height: 30vh;
+
+        .containts form .input-group {
+            height:45vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -74,15 +80,16 @@
         .containts form input {
             width: 100%;
             height: 40px;
-            margin-bottom: 15px; 
-            border-radius: 7px; 
+            margin-bottom: 15px;
+            /* border-radius: 7px; */
             border: none;
-            padding-left: 5px; 
+            padding-left: 5px;
             box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
-            
+
 
         }
-        .containts form input[type="submit"]{
+
+        .containts form input[type="submit"] {
             font-size: 0.8rem;
             background: #604BE8;
             border: none;
@@ -94,31 +101,39 @@
         }
     </style>
 </head>
+
 <body>
     <section>
         <div class="image">
-            <img src="login-bg.png"/>
+            <img src="login-bg.png" />
         </div>
 
         <div class="containts">
-            <form method="post" action="{{route('register.attempt')}}">
+            <form method="post" action="{{ route('register.attempt') }}">
                 @csrf
-            <div class="form">
-                <h2>Get Started</h2>
-                <p>Already have an account? <a href="/login">Login</a></p>
+                <div class="form">
+                    <h2>Get Started</h2>
+                    <p>Already have an account? <a href="/login">Login</a></p>
 
-                <div class="input-group">
-                    <input type="text" name="name" required placeholder="Enter Shop name here">
-                    <input type="email" name="email" required placeholder="Enter valid email here">
-                    <input type="password" name="password" required placeholder="Enter password here">
-                    <input type="submit" value="Sign Up">
-                </div>
-                <p>By signing up, I agree to the <a href="#">Terms and Conditions</a></p>
-                <p>Want to go to the landing page?? <a href="{{route('landingpage')}}">Landing Page</a></p>
-                </form>
-            </div>
+                    <div class="input-group">
+                        <input type="text" name="name" required placeholder="Enter Shop name here">
+                        @if ($errors->has('email'))
+                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @endif
+                        <input type="email" name="email" required placeholder="Enter valid email here">
+                        @if ($errors->has('password'))
+                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
+                        <input type="password" name="password" required placeholder="Enter password here">
+                        <input type="submit" value="Sign Up">
+                    </div>
+                    <p>By signing up, I agree to the <a href="#">Terms and Conditions</a></p>
+                    <p>Want to go to the landing page?? <a href="{{ route('landingpage') }}">Landing Page</a></p>
+            </form>
+        </div>
         </div>
 
     </section>
 </body>
+
 </html>
