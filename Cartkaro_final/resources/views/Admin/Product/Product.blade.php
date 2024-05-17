@@ -49,7 +49,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Category</th>
-            <th>Available</th>
+            <th>Description</th>
             <th>Action</th>
         </tr>
         @foreach ($products as $product)

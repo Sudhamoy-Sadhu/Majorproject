@@ -17,7 +17,7 @@
             </div>
             <div class="input-box">
                 <label>Phone No.</label><br>
-                <input type="text" name="Phone_no" value="{{old('Phone_no', $staff->Phone_no)}}">
+                <input type="text" name="Phone_no" value="{{old('Phone_no', $staff->phone_no)}}">
             </div>
 
             <div class="input-box position">
