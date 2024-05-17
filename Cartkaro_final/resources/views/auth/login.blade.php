@@ -113,7 +113,7 @@
                         <input type="submit" value="Sign Up">
                     </div>
                     <p>By signing up, I agree to the <a href="#">Terms and Conditions</a></p>
-                    <p>Want to go to the landing page?? <a href="#">Landing Page</a></p>
+                    <p>Want to go to the landing page?? <a href="{{route('landingpage')}}">Landing Page</a></p>
 
             </form>
         </div>

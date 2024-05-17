@@ -19,8 +19,8 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('landingpage');
+})->name('landingpage');
 Route::get('/login', [AuthController::class,'login'])->name('login');
 Route::get('/loginuser', [AuthController::class,'loginuser'])->name('loginuser');
 Route::post('/login', [AuthController::class,'loginAttempt'])->name('login.attempt');
