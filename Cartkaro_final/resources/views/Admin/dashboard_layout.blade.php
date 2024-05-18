@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="dashboard_layout.css">
     <style>
-            @yield('style');
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
         * {
@@ -737,6 +740,39 @@
             color: #c6c6c6;
             /* background: red; */
         }
+        .under-menu{
+        /* background: red; */
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 80%;
+    }
+    .under-menu a{
+        text-decoration: none;
+        color: #604BE8;
+        background: #F1F5FE;
+        border-radius: 5px; 
+        height: 18%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+    .under-menu a:hover{
+        background: #604BE8;
+        color: #F1F5FE;
+    }
+    .name-section{
+        background: #604BE8; 
+        width:100%;
+        color: #F1F5FE;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     </style>
 
     <title>Cartkaro- @yield('title')</title>

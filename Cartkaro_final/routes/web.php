@@ -54,6 +54,7 @@ Route::get('/product/{id}/delete',[ProductController::class,'delete']);
 
 
 
+Route::get('/orders',[OrderController::class,'index'])->name('Order.index');
 
 
 Route::get('/settings', function () {
@@ -62,6 +63,10 @@ Route::get('/settings', function () {
 Route::get('/settings2', function () {
     return view('Admin.Settings.settings2');
 });
+
+// Route::get('/orders', function () {
+//     return view('Admin.Order.order');
+// });
 // Route::get('/dashboard', function () {
 //     return view('dashboard_layout');
 // });
