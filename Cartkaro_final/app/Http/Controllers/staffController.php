@@ -41,8 +41,6 @@ class staffController extends Controller
         $staff->email = $request->email;
         $staff->Phone_no = $request->Phone_no;
         $staff->position = $request->position;
-        $staff->date_of_joining = $request->date_of_joining;
-        $staff->aadhar_no = $request->aadhar_no;
 
 
         $staff->save();

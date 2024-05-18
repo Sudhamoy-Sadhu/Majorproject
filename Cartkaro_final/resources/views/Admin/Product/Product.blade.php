@@ -10,25 +10,6 @@
             <a href="/productadd">
                 <input type="button" class="add-product-btn" value="Add Product">
             </a>
-
-            {{-- <div id="productFormContainer" style="display: none;">
-                <h2>Add New Product</h2>
-                <form id="productForm">
-                    <label for="productName">Product Name:</label>
-                    <input type="text" id="productName" name="productName" required><br><br>
-
-                    <label for="productPrice">Price:</label>
-                    <input type="number" id="productPrice" name="productPrice" required><br><br>
-
-                    <label for="productDescription">Description:</label><br>
-                    <textarea id="productDescription" name="productDescription" required></textarea><br><br>
-
-                    <label for="productCategories">Categories:</label><br>
-                    <input type="text" id="productCategories" name="productCategories" required><br><br>
-
-                    <button type="submit">Add Product</button>
-                </form>
-            </div> --}}
         </div>
     </div>
     <div class="part2">
@@ -48,16 +29,14 @@
         <tr class="heading">
             <th>Name</th>
             <th>Price</th>
-            <th>Category</th>
-            <th>Description</th>
             <th>Action</th>
         </tr>
         @foreach ($products as $product)
             <tr class="afterheading">
-                <td>{{ $product->name }}</td>
+                <td>{{ $product->Name }}</td>
                 <td>{{ $product->Price }}</td>
-                <td>{{ $product->Categories }}</td>
                 <td>{{ $product->Description }}</td>
+                <td>{{ $product->Total_Qty }}</td>
 
                 <td class="update">
                     <a href="/product/{{ $product->id }}/edit">
