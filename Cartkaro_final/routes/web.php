@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\staffController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::post('/register', [AuthController::class,'registerAttempt'])->name('regis
 Route::get('/logout', [AuthController::class,'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+Route::get('/dashboarduser', [DashboardController::class,'index2'])->name('User.dashboard');
 
 
 Route::get('/staffs', [staffController::class,'index'])->name('staffs');
@@ -54,6 +56,7 @@ Route::get('/product/{id}/delete',[ProductController::class,'delete']);
 
 
 
+Route::get('/UserProduct',[UserProductController::class,'index'])->name('UserProducts.index');
 Route::get('/orders',[OrderController::class,'index'])->name('Order.index');
 
 
