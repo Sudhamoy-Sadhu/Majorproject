@@ -26,39 +26,31 @@ class productController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'Name' => 'required',
             'Description' => 'required',
             'Price' => 'required',
-            'categories' => 'required',
-            'proImage' => 'required',
         ]);
 
-        // dd($request->all());
-        //Upload imager
-        $proImage = time() . '.' . $request->proImage->extension();
-        $request->proImage->move(public_path('product_img'), $proImage);
-
         $products = new product;
-        $products->name = $request->name;
+        $products->name = $request->Name;
         $products->Description = $request->Description;
         $products->Price = $request->Price;
-        $products->categories = $request->categories;
-        $products->proImage = $proImage;
+        $products->Total_Qty = $request->Total_Qty;
 
         $products->save();
 
-        return redirect('products');
+        return redirect()->route("products.index");
     }
 
     public function update(Request $request,$id){
         $products = product::where('id', $id)->first();
-        $products->name = $request->name;
+        $products->name = $request->Name;
         $products->Description = $request->Description;
         $products->Price = $request->Price;
-        $products->categories = $request->categories;
+        $products->Total_Qty = $request->Total_Qty;
 
         $products->save();
-        return back();
+        return redirect("products");
     }
     public function edit($id)
     {
